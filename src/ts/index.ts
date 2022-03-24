@@ -1,0 +1,1 @@
+../../test/MyCustomClassTest.class.ts

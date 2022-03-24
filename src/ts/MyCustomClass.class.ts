@@ -4,3 +4,5 @@ export default class MyCustomClass {
         console.log("Hello World from",this.constructor.name);
     }
 }
+
+console.log("MyCustomClass laoded")

@@ -19,12 +19,17 @@ pm-tools ts.init
     npm i run-all
 ```
 
-### build and use the npm package locally
+### Troubleshooting
 
-[Publish a npm package locally for testing](https://medium.com/@debshish.pal/publish-a-npm-package-locally-for-testing-9a00015eb9fd)
 ```
-    package.json
-        add
+package.json
+    scripts
+        "build:fix:out": "mv out/ts out/js",                                        Will break sourcemap
+        "prepublishOnly:esm": "npx tsc index.ts -t ES2015 --types node",            "node" types not found    
 
-            "thinglish": "file:../thinglish/thinglish-0.0.1.tgz",
+        "compile:esm:index":"npx tsc index.js --target es6 --modules es2015 && npm run buid:dist:rename:esm",
+
+        "prepublishOnly:cjs": "npx tsc index.ts --esModuleInterop --removeComments",
+        "prepublishOnly:esm": "npx tsc src/index.ts -t ES2015",
+
 ```

@@ -1,5 +1,4 @@
-import MyCustomClass from "./../src/ts/MyCustomClass.class"
-
+import MyCustomClass from "./MyCustomClass.class";
 
 let myInsatnce:MyCustomClass = new MyCustomClass();
 

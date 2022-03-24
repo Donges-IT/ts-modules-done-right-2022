@@ -1,15 +1,31 @@
 {
+  "type": "module",
   "name": "ts-modules-done-right-2022",
   "version": "1.0.0",
   "description": "write ts esm modules and publish as multi target consumable",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean:out && npm run clean:dist && npm run compile && npm run build:dist",
+    "clean": "npm run clean:out && npm run clean:dist",
+    "build": "npm run clean && npm run compile:cjs && npm run compile:esm && npm run build:dist",
     "clean:out": "rm -Rf ./out",
     "clean:dist": "rm -Rf ./dist",
     "compile": "npx tsc",
+
+    "compile:cjs": "npx tsc -p tsconfig.cjs.json",
+    "compile:esm": "npx tsc -p tsconfig.esm.json",
+
+
+
+
+
     "build:dist": "mkdir dist",
-    "start": "npm run build && node out/test/MyCustomClassTest.class.js",
+
+
+    "buid:dist:rename:esm":"mv out/esm/index.js out/esm/index.mjs && mv out/esm/MyCustomClass.class.js out/esm/MyCustomClass.class.mjs",
+
+    "start": "npm run build && node out/cjs/index.js",
+    "esm": "npm run build && npm run buid:dist:rename:esm && node out/esm/index.mjs",
+
     "test": "node out/test/MyCustomClassTest.class.js"
   },
   "repository": {
