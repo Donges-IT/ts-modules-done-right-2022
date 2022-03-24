@@ -4,7 +4,14 @@
   "description": "write ts esm modules and publish as multi target consumable",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run clean:out && npm run clean:dist && npm run compile && npm run build:dist && npm run build:mjs",
+    "clean:out": "rm -Rf ./out",
+    "clean:dist": "rm -Rf ./dist",
+    "compile": "npx tsc",
+    "build:dist": "mkdir dist",
+    "build:mjs": "cp out/test/MyCustomClassTest.class.js out/test/MyCustomClassTest.class.mjs",
+    "start": "npm run build && node out/test/MyCustomClassTest.class.mjs",
+    "test": "node out/test/MyCustomClassTest.class.mjs"
   },
   "repository": {
     "type": "git",

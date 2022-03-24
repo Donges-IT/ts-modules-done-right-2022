@@ -1,7 +1,6 @@
-class MyCustomClass {
-    name: String = typeof this
+export default class MyCustomClass {
 
     constructor() {
-        console.log("Hello World from",this.name);
+        console.log("Hello World from",this.constructor.name);
     }
 }
