@@ -1,0 +1,29 @@
+{
+  "name": "ts-modules-done-right-2022",
+  "version": "1.0.0",
+  "description": "write ts esm modules and publish as multi target consumable",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Donges-IT/ts-modules-done-right-2022.git"
+  },
+  "keywords": [
+    "node",
+    "ts",
+    "esm",
+    "mjs",
+    "cjs"
+  ],
+  "author": "Marcel Donges",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Donges-IT/ts-modules-done-right-2022/issues"
+  },
+  "homepage": "https://github.com/Donges-IT/ts-modules-done-right-2022#readme",
+  "dependencies": {
+    "typescript": "^4.6.2"
+  }
+}
