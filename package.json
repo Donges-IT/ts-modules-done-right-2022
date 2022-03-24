@@ -23,7 +23,7 @@
     "url": "https://github.com/Donges-IT/ts-modules-done-right-2022/issues"
   },
   "homepage": "https://github.com/Donges-IT/ts-modules-done-right-2022#readme",
-  "dependencies": {
+  "devDependencies": {
     "typescript": "^4.6.2"
   }
 }

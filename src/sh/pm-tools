@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+#clear
+#export PS4='\033[90m+${LINENO} in ${#BASH_SOURCE[@]}>${FUNCNAME[0]}:${BASH_SOURCE[@]##*/} \033[0m'
+#set -x
+
+#echo "starting: $0 <LOG_LEVEL=$1>"
+
+### new.method
+
+pm-tools.ts.init() {
+  local path="$1"
+  shift
+
+  if [ -z "$path" ]; then
+    this.absolutePath .
+    path=$RESULT
+  fi
+
+  this.absolutePath $path
+  path=$RESULT
+
+  cd $path
+
+  if [ -f "$path/package.json" ]; then
+    npm i typescript --save-dev
+    npx tsc --init                  # create a tsconfig.json
+    mkdir src
+    mkdir dist
+    mkdir out
+    mkdir test
+    {
+      echo ""
+      echo "#ts gen folder" >>.gitignore
+      echo "out" 
+    } >>.gitignore
+  else
+    warn.log "please run first
+    
+    npm init
+    
+    "
+  fi
+
+
+}
+
+pm-tools.usage()
+{
+  local this=${0##*/}
+  echo "You started: "
+  echo "$0
+
+  Usage:
+  $this: command   description and Parameter
+
+      usage     prints this dialog while it will print the status when there are no parameters          
+      v         print version information
+      init      initializes ...nothing yet
+      ----      --------------------------
+  
+  Examples
+    $this v
+    $this init
+  "
+}
+
+pm-tools.start()
+{
+  #echo "sourcing init"
+  source this
+
+  # if [ -z "$1" ]; then
+  #   status.discover "$@"
+  #   return 0
+  # fi
+
+  this.start "$@"
+}
+
+pm-tools.start "$@"
+

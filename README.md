@@ -3,6 +3,11 @@
 
 developers please scroll down [here](#for-developers)
 
+```
+pm-tools ts.init
+```
+
+
 ## for DEVELOPERS
 
 ### Install history
