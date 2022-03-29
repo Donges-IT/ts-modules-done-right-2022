@@ -26,10 +26,10 @@ Maybe you will also realize the many inconsistencys of the non systemic developm
 |                        | | | node out/es6/esm/index.js |
 |                        | | | works  on this code ./ts/index.wrong.but.working.ts |
 | tsconfig.esnext.esnext.json| | | | out: esnext/esm |
-|                              | | | node out/esnext/esm/index.js |
-|                              | | | works  on this code ./ts/index.wrong.but.working.ts |
-|                              | | | node out/esnext/esm/index.right.but.NOT.working.js |
-|                              | | | [error: ERR_MODULE_NOT_FOUND](#esnext-esnext) | 
+|                            | | | | node out/esnext/esm/index.js |
+|                            | | | | works  on this code ./ts/index.wrong.but.working.ts |
+|                            | | | | node out/esnext/esm/index.right.but.NOT.working.js |
+|                            | | | | [error: ERR_MODULE_NOT_FOUND](#esnext-esnext) | 
 
 
 
