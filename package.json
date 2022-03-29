@@ -1,30 +1,31 @@
 {
   "type": "module",
+
   "name": "ts-modules-done-right-2022",
   "version": "1.0.0",
   "description": "write ts esm modules and publish as multi target consumable",
   "main": "index.js",
   "scripts": {
     "clean": "npm run clean:out && npm run clean:dist",
-    "build": "npm run clean && npm run compile:cjs && npm run compile:esm && npm run build:dist",
+    "build": "npm run clean && npm run compile:cjs && npm run compile:esm && npm run compile:es6:umd && npm run compile:esnext && npm run build:dist",
     "clean:out": "rm -Rf ./out",
     "clean:dist": "rm -Rf ./dist",
     "compile": "npx tsc",
 
     "compile:cjs": "npx tsc -p tsconfig.cjs.json",
     "compile:esm": "npx tsc -p tsconfig.esm.json",
+    "compile:es6:umd": "npx tsc -p tsconfig.es6.umd.json",
+    "compile:esnext": "npx tsc -p tsconfig.esnext.esnext.json",
 
 
-
-
-
-    "build:dist": "mkdir dist",
-
-
-    "buid:dist:rename:esm":"mv out/esm/index.js out/esm/index.mjs && mv out/esm/MyCustomClass.class.js out/esm/MyCustomClass.class.mjs",
-
-    "start": "npm run build && node out/cjs/index.js",
-    "esm": "npm run build && npm run buid:dist:rename:esm && node out/esm/index.mjs",
+    "build:dist": "npm run build:dist:folder && npm run build:dist:rename:esm && npm run build:dist:rename:cjs",
+    "build:dist:folder": "mkdir dist",
+    "build:dist:rename:cjs":"cp out/es6/cjs/index.js out/es6/cjs/index.cjs && cp out/es6/cjs/MyCustomClass.class.js out/es6/cjs/MyCustomClass.class.cjs",
+    "build:dist:rename:esm":"cp out/esnext/esm/index.js out/esnext/esm/index.mjs && cp out/esnext/esm/MyCustomClass.class.js out/esnext/esm/MyCustomClass.class.mjs",
+    
+    "start": "npm run build && node out/esnext/esm/index.js",
+    "esm": "npm run build && node out/esnext/esm/index.mjs",
+    "cjs": "npm run build && node out/es6/cjs/index.cjs",
 
     "test": "node out/test/MyCustomClassTest.class.js"
   },

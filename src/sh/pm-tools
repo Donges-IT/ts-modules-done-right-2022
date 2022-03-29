@@ -44,6 +44,48 @@ pm-tools.ts.init() {
 
 }
 
+pm-tools.colordiff() {
+  diff --color=always      \
+      "$1" "$2" 
+}
+
+pm-tools.diff.full.color() {
+  diff --old-group-format=$'\e[0;31m%<\e[0m'      \
+      --new-group-format=$'\e[0;32m%>\e[0m'       \
+      --unchanged-group-format=$'\e[0;90m%<\e[0m' \
+      "$1" "$2" 
+}
+
+pm-tools.diff.extend() {
+  {
+  echo "{
+  \"extends\": \"./tsconfig.json\","
+  diff --new-group-format=$'%<'      \
+      --old-group-format=$''       \
+      --unchanged-group-format=$'' \
+      "$1" "$2" 
+  echo ""
+  echo "}"
+  } >"$2".extends.json
+  cat "$2".extends.json
+}
+
+
+pm-tools.diff.side.by.side() {
+  diff -y \
+      "$1" "$2" 
+  echo  "
+  $1                              $2" 
+}
+
+pm-tools.create.all.extend.configs() {
+    pm-tools.diff.extend ../../tsconfig.json ../../tsconfig.cjs.json
+    pm-tools.diff.extend ../../tsconfig.json ../../tsconfig.es6.umd.json
+    pm-tools.diff.extend ../../tsconfig.json ../../tsconfig.esm.json
+    pm-tools.diff.extend ../../tsconfig.json ../../tsconfig.esnext.esnext.json
+}
+
+
 pm-tools.usage()
 {
   local this=${0##*/}

@@ -1,4 +1,4 @@
-import MyCustomClass from "./MyCustomClass.class.js";
+import MyCustomClass from "./MyCustomClass.class";
 
 const myInsatnceWrongRight:MyCustomClass = new MyCustomClass();
 

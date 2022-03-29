@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.json",
+    "rootDir": "./", /* Specify the root folder within your source files. */
+    "outDir": "./out", /* Specify an output folder for all emitted files. */
+
+}
