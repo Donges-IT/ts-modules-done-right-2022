@@ -1,5 +1,9 @@
 # ts-modules-done-right-2022
 
+contributors please scroll down [here](#for-contributors)
+
+
+
 This is a systematic module test on the current typescript version.
 Its intension is to demystify the hundrets od stackoverflow hints and blog posts on this topic.
 
@@ -7,6 +11,14 @@ You can always see each of the tsconfig.jsons for each target and module "style"
 It also shows how much effor is attached to each of the module styles and its boilerplates.
 
 Maybe you will also realize the many inconsistencys of the non systemic development aporach of the diffrent competing ES-teams.
+
+## getting started
+```
+pm-tools ts.init
+```
+
+
+## Matrix for cases
 
 | Config                |  ES6 CommonJS         | ES6 UMD               | ES6 ESM               | ESNext ESM            |                       |
 |:----------------------|:----------------------|:----------------------|:----------------------|:----------------------|:----------------------|
@@ -32,12 +44,6 @@ Maybe you will also realize the many inconsistencys of the non systemic developm
 |                            | | | | [error: ERR_MODULE_NOT_FOUND](#esnext-esnext) | 
 
 
-
-contributors please scroll down [here](#for-developers)
-
-```
-pm-tools ts.init
-```
 
 
 # Error Messages
@@ -108,7 +114,7 @@ import MyCustomClass from "./MyCustomClass.class";
                                                 ^^^ no ".js" as made clear by the TS team
 ```
 
-## for DEVELOPERS
+## for CONTRIBUTORS
 
 ### Install history
 
@@ -118,6 +124,10 @@ import MyCustomClass from "./MyCustomClass.class";
     npx tsc --init                  # create a tsconfig.json
     npm i run-all
 ```
+
+
+### To-Do
+ * add the cjs package.json (only remove type: module)
 
 ### Troubleshooting
 
@@ -136,5 +146,5 @@ package.json
 
 
 ```
-    snowpack???
+    snowpack...
 ```
